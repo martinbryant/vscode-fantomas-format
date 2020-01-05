@@ -1,0 +1,117 @@
+{
+	"name": "vscode-fantomas-format",
+	"displayName": "vscode-fantomas-format",
+	"description": "new version",
+	"version": "0.0.1",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onLanguage:fsharp"
+	],
+	"icon": "images/fsharp_logo.png",
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Fantomas-Format",
+			"properties": {
+				"fantomas.indent": {
+					"type": "number",
+					"default": 4,
+					"minimum": 1,
+					"maximum": 10,
+					"description": "Set number of spaces for indentation (default = 4). The value should be between 1 and 10."
+				},
+				"fantomas.pageWidth": {
+					"type": "number",
+					"default": 80,
+					"minimum": 60,
+					"description": "Set the column where we break to new lines (default = 80). The value should be at least 60."
+				},
+				"fantomas.preserveEOL": {
+					"type": "boolean",
+					"default": false,
+					"description": "Preserve original end of lines, disables auto insert/remove of blank lines (default = false)"
+				},
+				"fantomas.semicolonEOL": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable semicolons at the end of line (default = false)."
+				},
+				"fantomas.spaceBeforeArgument": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable spaces before the first argument of functions when there are parenthesis (default = true). For methods and constructors, there are never spaces regardless of this option."
+				},
+				"fantomas.spaceBeforeColon": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable spaces before colons (default = true)."
+				},
+				"fantomas.spaceAfterComma": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable spaces after commas (default = true)."
+				},
+				"fantomas.spaceAfterSemiColon": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable spaces after semicolons (default = true)."
+				},
+				"fantomas.indentOnTryWith": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable indentation on try/with block (default = false)."
+				},
+				"fantomas.reorderOpenDeclaration": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable reordering open declarations (default = false)."
+				},
+				"fantomas.spaceAroundDelimiter": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable spaces after starting and before ending of lists, arrays, sequences and records (default = true)."
+				},
+				"fantomas.strictMode": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable strict mode (ignoring directives and comments and printing literals in canonical forms) (default = false)."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"execa": "^4.0.0"
+	},
+	"bugs": {
+		"url": "https://github.com/martinbryant/vscode-fantomas-format/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/martinbryant/vscode-fantomas-format.git"
+	}
+}
